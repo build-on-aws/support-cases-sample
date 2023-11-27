@@ -1,11 +1,14 @@
-## My Project
+## Support Cases Sample App
 
-TODO: Fill this README out!
+This is a simple Support Cases sample app for Serverless demos. The app is written in Python and will be used in GenAI demos.
 
-Be sure to:
+Please note the app is not perfect and it is purposely so. The app is used to demonstrate how GenAI tools can help builders improve their code.
 
-* Change the title in this README
-* Edit your repository description on GitHub
+Use the `prepare.sh` in preparation folder to create the Amazon DynamoDB table and permissions.
+
+To deploy this app run following commands:
+- `sam build`
+- `sam deploy --guided`
 
 ## Security
 

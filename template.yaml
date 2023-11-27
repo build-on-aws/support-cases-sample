@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  python3.9
+  Sample SAM Template for flask
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 10
+    
+Resources:
+  FlaskFunction2:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: app.lambda_handler
+      Runtime: python3.9
+      Events:
+         ApiEvent:
+           Type: HttpApi
+           
+Outputs:
+  FlaskApi:
+    Description: "API Gateway endpoint URL for Prod stage for Flask function"
+    Value: !Sub "https://${ServerlessHttpApi}.execute-api.${AWS::Region}.${AWS::URLSuffix}/"
+  FlaskFunction:
+    Description: "Flask Lambda Function ARN"
+    Value: !GetAtt FlaskFunction2.Arn
+  FlaskIamRole:
+    Description: "Implicit IAM Role created for Flask function"
+    Value: !GetAtt FlaskFunction2Role.Arn
